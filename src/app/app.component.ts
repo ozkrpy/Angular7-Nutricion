@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClientJsonpModule } from '@angular/common/http';
+import { MediaObserver } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AppNutricion';
+  constructor(public media: MediaObserver) {}
 }
