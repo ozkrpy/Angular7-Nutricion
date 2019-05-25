@@ -5,14 +5,14 @@ import { InicioAlimentosComponent } from './inicio-alimentos/inicio-alimentos.co
 import { DetalleAlimentosComponent } from './detalle-alimentos/detalle-alimentos.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/alimentos/inicio', pathMatch: 'full' },      
-  { path: 'inicio', component: InicioAlimentosComponent },    
-  { path: 'listar', component: ListaAlimentosComponent },    
-  { path: 'detalle', component: DetalleAlimentosComponent },    
+  { path: '', redirectTo: '/alimentos/inicio', pathMatch: 'full' },
+  { path: 'inicio', component: InicioAlimentosComponent },
+  { path: 'listar', component: ListaAlimentosComponent },
+  { path: 'detalle', component: DetalleAlimentosComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AlimentosRoutingModule { }
+export class AlimentosRoutingModule {}

@@ -13,13 +13,15 @@ import { PaginaNoExisteComponent } from './pagina-no-existe/pagina-no-existe.com
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { InicioComponent } from './inicio/inicio.component';
 import { MenuNavegacionLateralComponent } from './menu-navegacion-lateral/menu-navegacion-lateral.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaginaNoExisteComponent,
     InicioComponent,
-    MenuNavegacionLateralComponent
+    MenuNavegacionLateralComponent,
+    AyudaComponent
   ],
   imports: [
     BrowserModule,
