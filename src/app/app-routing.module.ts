@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'ayuda', component: AyudaComponent },
   { path: 'alimentos', loadChildren: './alimentos/alimentos.module#AlimentosModule' },
   { path: 'pacientes', loadChildren: './pacientes/pacientes.module#PacientesModule' },
+  { path: 'usuarios', loadChildren: './usuarios/usuarios.module#UsuariosModule' },
   { path: 'dietas', loadChildren: './dietas/dietas.module#DietasModule' },
   {
     path: 'administracion',

@@ -1,28 +1,48 @@
 <div class="app-container">
-    <mat-toolbar color="primary" fxLayoutGap="8px" class="app-toolbar" [class.app-is-mobile]="media.isActive('xs')">
-        <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-        <a mat-icon-button routerLink="/inicio">
-            <mat-icon>gradient</mat-icon>
-            <span class="mat-h2">NUTRI3.0</span>
-        </a>
-        <span class="flex-spacer"></span>
-        <button mat-mini-fab routerLink="/user/profile" matTooltip="Profile" aria-label="User Profile">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-        <button mat-mini-fab routerLink="/user/logout" matTooltip="Logout" aria-label="Logout">
-        <mat-icon>lock_open</mat-icon>
-      </button>
-    </mat-toolbar>
-    <mat-sidenav-container class="app-sidenav-container">
-        <mat-sidenav #sidenav [mode]="media.isActive('xs') ? 'over' : 'side'" [fixedInViewport]="media.isActive('xs')" fixedTopGap="56">
-            <app-menu-navegacion-lateral></app-menu-navegacion-lateral>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <router-outlet></router-outlet>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+  <mat-toolbar
+    color="primary"
+    fxLayoutGap="8px"
+    class="app-toolbar"
+    [class.app-is-mobile]="media.isActive('xs')"
+  >
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-icon-button routerLink="/inicio">
+      <mat-icon>gradient</mat-icon>
+      <span class="mat-h2">NUTRI3.0</span>
+    </a>
+    <span class="flex-spacer"></span>
+    <button
+      mat-mini-fab
+      routerLink="/usuarios/inicio"
+      matTooltip="Profile"
+      aria-label="User Profile"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button
+      mat-mini-fab
+      routerLink="/usuarios/salir"
+      matTooltip="Logout"
+      aria-label="Logout"
+    >
+      <mat-icon>lock_open</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav
+      #sidenav
+      [mode]="media.isActive('xs') ? 'over' : 'side'"
+      [fixedInViewport]="media.isActive('xs')"
+      fixedTopGap="56"
+    >
+      <app-menu-navegacion-lateral></app-menu-navegacion-lateral>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 
 <!-- <div class="app-container">
