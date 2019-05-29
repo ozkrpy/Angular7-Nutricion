@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PaginaNoExisteComponent } from './pagina-no-existe/pagina-no-existe.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { AdministracionModule } from './administracion/administracion.module';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { AccesoUsuarioComponent } from './acceso-usuario/acceso-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -17,6 +17,8 @@ const routes: Routes = [
     path: 'administracion',
     loadChildren: './administracion/administracion.module#AdministracionModule'
   },
+  { path: 'acceso', component: AccesoUsuarioComponent },
+  { path: 'acceso/:redirectUrl', component: AccesoUsuarioComponent },
   { path: '**', component: PaginaNoExisteComponent }
 ];
 

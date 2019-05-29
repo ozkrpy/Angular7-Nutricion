@@ -11,6 +11,13 @@ import { InicioComponent } from './inicio/inicio.component';
 import { MenuNavegacionLateralComponent } from './menu-navegacion-lateral/menu-navegacion-lateral.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { AutenticacionService } from './autenticacion/autenticacion/autenticacion.service';
+import { AccesoUsuarioComponent } from './acceso-usuario/acceso-usuario.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptor } from './autenticacion/auth-http-interceptor';
+import { DialogoComponent } from './common/dialogo/dialogo.component';
+import { UiService } from './common/ui.service';
+
 
 @NgModule({
   declarations: [
@@ -18,16 +25,29 @@ import { AutenticacionService } from './autenticacion/autenticacion/autenticacio
     PaginaNoExisteComponent,
     InicioComponent,
     MenuNavegacionLateralComponent,
-    AyudaComponent
+    AyudaComponent,
+    AccesoUsuarioComponent,
+    DialogoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AutenticacionService],
+  providers: [
+    AutenticacionService,  
+    {
+      provide: HTTP_INTERCEPTORS,      
+      useClass: AuthHttpInterceptor,      
+      multi: true,    
+    },
+    UiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

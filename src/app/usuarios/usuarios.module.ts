@@ -9,7 +9,7 @@ import { LogoutUsuariosComponent } from './logout-usuarios/logout-usuarios.compo
   declarations: [InicioUsuariosComponent, LogoutUsuariosComponent],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
   ]
 })
 export class UsuariosModule { }
