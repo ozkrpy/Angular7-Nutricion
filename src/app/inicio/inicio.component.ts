@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from '../autenticacion/autenticacion/autenticacion.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  private _displayLogin = true;
 
-  constructor() { }
+  constructor(private authService: AutenticacionService) { }
 
   ngOnInit() {
+    this.authService.authStatus.subscribe(
+      authStatus => (this._displayLogin = !authStatus.isAuthenticated)
+    );
   }
 
+  getDisplayLogin() {
+    return this._displayLogin;
+  }
 }

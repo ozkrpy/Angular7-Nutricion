@@ -4,6 +4,7 @@ import { AutenticacionService } from 'src/app/autenticacion/autenticacion/autent
 import { Router, ActivatedRoute } from '@angular/router';
 import { EmailValidations, PasswordValidation } from '../common/validation';
 import { UiService } from '../common/ui.service';
+import { Rol } from '../rol.enum'
 
 @Component({
   selector: 'app-acceso-usuario',
@@ -42,15 +43,23 @@ export class AccesoUsuarioComponent implements OnInit {
       .subscribe(
         authStatus => {
           if (authStatus.isAuthenticated) {
-            console.log(authStatus);
+            //console.log(authStatus);
             
             this.uiService.showToast(`Bienvenido: ${authStatus.usuarioRol}`);
-            this.router.navigate([this.redirectUrl || '/']);
+            this.router.navigate([this.redirectUrl || this.homeRoutePerRole(authStatus.usuarioRol)]);
           }
         },
         error => (this.loginError = error)
       );
   }
 
+  homeRoutePerRole(role: Rol) {    
+    switch (role) {    
+      case Rol.Administrador:        
+      return '/administracion'      
+      case Rol.Nutricionista:        
+      return '/dietas'    
+      default:        
+      return '/usuarios/inicio'    }  } 
 
 }

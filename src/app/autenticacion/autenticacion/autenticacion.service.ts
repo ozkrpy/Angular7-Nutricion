@@ -43,7 +43,7 @@ export class AutenticacionService extends CacheService{
   constructor(private httpClient: HttpClient) {
     super();
     this.authStatus.subscribe(authStatus => this.setItem('authStatus', authStatus));
-    this.authProvider = this.exampleAuthProvider 
+    //this.authProvider = this.exampleAuthProvider 
   }
 
   private exampleAuthProvider(email: string,  password: string ): Observable<IServerAuthResponse> {
@@ -53,9 +53,10 @@ export class AutenticacionService extends CacheService{
 
   login(email: string, password: string): Observable<IAuthStatus> {
     this.logout();
-    const loginResponse = this.authProvider(email, password).pipe(
+    const loginResponse = this.exampleAuthProvider(email, password).pipe(
       map(value => {
         this.setToken(value.token);
+        console.log(this.getToken());
         return decode(value.token) as IAuthStatus;
       }),
       catchError(transformError)

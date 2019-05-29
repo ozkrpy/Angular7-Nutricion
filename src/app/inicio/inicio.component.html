@@ -1,1 +1,6 @@
-<p>Inicio</p>
+<div *ngIf="!(authService.authStatus | async).isAuthenticated">
+    <app-acceso-usuario></app-acceso-usuario>
+</div>
+<div *ngIf="(authService.authStatus | async).isAuthenticated">
+    <span class="mat-display-3">Usuario autenticado, pagina de inicio</span>
+</div>
