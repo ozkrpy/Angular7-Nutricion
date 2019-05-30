@@ -13,10 +13,7 @@ export class LogoutUsuariosComponent implements OnInit {
   constructor(private router: Router, private authService: AutenticacionService) {}
 
   ngOnInit() {    
-
     this.authService.logout(); 
-    console.log(this.authService.getToken());
-      
     this.router.navigate(['/']);  
   } 
 
