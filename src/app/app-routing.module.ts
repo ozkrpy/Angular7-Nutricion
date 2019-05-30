@@ -4,6 +4,7 @@ import { PaginaNoExisteComponent } from './pagina-no-existe/pagina-no-existe.com
 import { InicioComponent } from './inicio/inicio.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { AccesoUsuarioComponent } from './acceso-usuario/acceso-usuario.component';
+import { AuthGuardGuard } from './autenticacion/auth-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'dietas', loadChildren: './dietas/dietas.module#DietasModule' },
   {
     path: 'administracion',
-    loadChildren: './administracion/administracion.module#AdministracionModule'
+    loadChildren: './administracion/administracion.module#AdministracionModule',
+    canLoad: [AuthGuardGuard]
   },
   { path: 'acceso', component: AccesoUsuarioComponent },
   { path: 'acceso/:redirectUrl', component: AccesoUsuarioComponent },

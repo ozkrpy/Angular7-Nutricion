@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from './autenticacion/auth-http-interceptor';
 import { DialogoComponent } from './common/dialogo/dialogo.component';
 import { UiService } from './common/ui.service';
+import { AuthGuardGuard } from './autenticacion/auth-guard.guard';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { UiService } from './common/ui.service';
       useClass: AuthHttpInterceptor,      
       multi: true,    
     },
-    UiService
+    UiService,
+    AuthGuardGuard
   ],
   bootstrap: [AppComponent]
 })
