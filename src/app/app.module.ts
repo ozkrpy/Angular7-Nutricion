@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { AppMaterialModule } from './app-material.module';
 import { PaginaNoExisteComponent } from './pagina-no-existe/pagina-no-existe.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { InicioComponent } from './inicio/inicio.component';
@@ -34,7 +34,7 @@ import { AuthGuardGuard } from './autenticacion/auth-guard.guard';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    AppMaterialModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,

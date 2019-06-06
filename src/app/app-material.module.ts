@@ -42,4 +42,4 @@ import {
     MatListModule
   ]
 })
-export class MaterialModule { }
+export class AppMaterialModule { }

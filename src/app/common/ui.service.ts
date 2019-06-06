@@ -9,7 +9,7 @@ export class UiService {
 
   constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
   showToast(message: string, action = 'Close', config?: MatSnackBarConfig) {    
-    this.snackBar.open(message, action,config || {duration: 7000})  
+    this.snackBar.open(message, action,config || {duration: 3000})  
   } 
 
   showDialog(title: string,

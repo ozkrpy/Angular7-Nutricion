@@ -56,7 +56,6 @@ export class AutenticacionService extends CacheService{
     const loginResponse = this.exampleAuthProvider(email, password).pipe(
       map(value => {
         this.setToken(value.token);
-        console.log(this.getToken());
         return decode(value.token) as IAuthStatus;
       }),
       catchError(transformError)
