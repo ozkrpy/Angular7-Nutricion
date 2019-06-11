@@ -43,8 +43,6 @@ export class AccesoUsuarioComponent implements OnInit {
       .subscribe(
         authStatus => {
           if (authStatus.isAuthenticated) {
-            //console.log(authStatus);
-            
             this.uiService.showToast(`Bienvenido: ${authStatus.usuarioRol}`);
             this.router.navigate([this.redirectUrl || this.homeRoutePerRole(authStatus.usuarioRol)]);
           }

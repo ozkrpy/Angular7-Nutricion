@@ -8,10 +8,14 @@ import { catchError } from 'rxjs/operators';
 import { transformError } from '../common/common';
 import { environment } from 'src/environments/environment.prod';
 
+export interface IUsers {  
+  items: IUser[];  
+  total: number 
+} 
+
 @Injectable({  
   providedIn: 'root' 
 }) 
-
 export class UserService extends CacheService {  
   currentUser = new BehaviorSubject<IUser>(this.getItem('user') || new Usuario())  
   private currentAuthStatus: IAuthStatus
@@ -34,7 +38,7 @@ export class UserService extends CacheService {
   }
 
   getUser(id): Observable<IUser> {    
-    return this.httpClient.get<IUser>(`${environment.baseUrl}/user`/*`${environment.baseUrl}/v1/user/${id}`*/)  
+    return this.httpClient.get<IUser>(`${environment.baseUrl}/user/${id}`/*`${environment.baseUrl}/v1/user/${id}`*/)  
   }
 
   updateUser(user: IUser): Observable<IUser> {    
@@ -49,5 +53,16 @@ export class UserService extends CacheService {
       err => Observable.throw(err)    
     )
     return updateResponse  
+  } 
+
+  getUsers(pageSize: number, searchText = '', pagesToSkip = 0): Observable<IUsers> { 
+    let response = this.httpClient.get<IUsers>(`${environment.baseUrl}/usuarios`, {    
+      params: {      
+        search: searchText,      
+        offset: pagesToSkip.toString(),      
+        limit: pageSize.toString(),    
+      },  
+    }); 
+    return response 
   } 
 }

@@ -8,6 +8,9 @@ import { AdministracionUsuarioComponent } from './administracion-usuario/adminis
 import { TablaUsuarioComponent } from './tabla-usuario/tabla-usuario.component';
 import { ResolveUsuario } from '../usuarios/resolve.usuario';
 import { AppMaterialModule } from '../app-material.module';
+import { AdministracionMaterialModule } from './administracion-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -16,7 +19,12 @@ import { AppMaterialModule } from '../app-material.module';
     CommonModule,
     AdministracionRoutingModule,
     SharedComponentsModule,
-    AppMaterialModule
+    AppMaterialModule, 
+    AdministracionMaterialModule, 
+    AppMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [
     ResolveUsuario

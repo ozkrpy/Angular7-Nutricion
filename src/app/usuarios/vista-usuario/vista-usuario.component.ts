@@ -27,4 +27,8 @@ export class VistaUsuarioComponent implements OnChanges, OnInit {
     } 
   }
 
+  get editMode() {
+    return !this.user
+  }
+
 }
